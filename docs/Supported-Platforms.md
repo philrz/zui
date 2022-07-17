@@ -93,7 +93,7 @@ builds ([brim/1266](https://github.com/brimdata/brim/issues/1266)).
 
 Brim's [test automation](#automated-testing) runs on Ubuntu 18.04 (`.deb`
 package) and therefore this is the Linux distribution on which we are best able
-to ensure quality and prevent regressions. 
+to ensure quality and prevent regressions.
 
 An `.rpm` package is also provided that is periodically [smoke tested](https://github.com/brimdata/brim/wiki/Supported-Platforms#smoke-testing)
 on CentOS 8. The [CentOS FAQ](https://wiki.centos.org/FAQ/General) explains that CentOS
