@@ -16,9 +16,15 @@ jobs:
     - name: Extract branch name
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
+    - name: Lint
+      run: |
+        rm package.json
+        npm install --no-save markdownlint-cli
+        npx markdownlint docs
     - uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         config-file: .github/workflows/markdown-link-check-config.json
+        use-quiet-mode: yes
     - name: Inform Slack users of link check failures
       uses: tiloio/slack-webhook-action@v1.1.2
       if: ${{ failure() && steps.extract_branch.outputs.branch == 'main' }}
