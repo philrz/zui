@@ -54,6 +54,7 @@ export default class BrimcapPlugin {
 
     const commandName = env.isWindows ? "brimcap.exe" : "brimcap"
     this.brimcapBinPath = path.join(zdepsDirectory, commandName)
+    console.log(this.brimcapBinPath)
     this.cli = new BrimcapCLI(this.brimcapBinPath)
 
     this.brimcapDataRoot = path.join(dataRoot, "brimcap-root")
