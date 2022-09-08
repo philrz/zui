@@ -68,7 +68,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-module-resolver": "^4.0.0",
-    "brimcap": "brimdata/brimcap#v1.2.0",
+    "brimcap": "brimdata/brimcap#0bcc312e86f6e3d9cfc85033f25a4bae790b15c7",
     "chalk": "^4.1.0",
     "commander": "^2.20.3",
     "cpx": "^1.5.0",
@@ -100,7 +100,8 @@
     "typescript": "^4.6.2",
     "web-streams-polyfill": "^3.2.0",
     "whatwg-fetch": "^3.2.0",
-    "win-7zip": "^0.1.0"
+    "win-7zip": "^0.1.0",
+    "zui-test-data": "workspace:*"
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
@@ -176,7 +177,7 @@
     "use-resize-observer": "^8.0.0",
     "valid-url": "^1.0.9",
     "web-file-polyfill": "^1.0.4",
-    "zed": "brimdata/zed#14f13522ea58786ae382b14e176098188cd8b439"
+    "zed": "brimdata/zed#1c906e49382a15c02818353a69b29fa59e46c5d4"
   },
   "peerDependencies": {
     "react": "^18.0.0",

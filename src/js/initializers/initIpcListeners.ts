@@ -4,7 +4,7 @@ import confirmUnload from "../flows/confirmUnload"
 import deletePartialPools from "../flows/deletePartialPools"
 import Appearance from "../state/Appearance"
 import Current from "../state/Current"
-import {getPersistedWindowState} from "../state/getPersistable"
+import {getPersistedWindowState} from "../state/stores/get-persistable"
 import Layout from "../state/Layout"
 import Modal from "../state/Modal"
 import SearchBar from "../state/SearchBar"
@@ -15,6 +15,7 @@ import initNewSearchTab from "./initNewSearchTab"
 import PluginManager from "./pluginManager"
 import Editor from "../state/Editor"
 import submitSearch from "src/app/query-home/flows/submit-search"
+import {commands} from "src/app/commands/command"
 
 export default (store: Store, pluginManager: PluginManager) => {
   const dispatch = store.dispatch as AppDispatch
@@ -101,5 +102,13 @@ export default (store: Store, pluginManager: PluginManager) => {
   ipcRenderer.on("showReleaseNotes", () => {
     const id = Current.getLakeId(store.getState())
     store.dispatch(Tabs.create(releaseNotesPath(id)))
+  })
+
+  ipcRenderer.on("toggleHistogram", () => {
+    store.dispatch(Layout.toggleHistogram())
+  })
+
+  ipcRenderer.on("runCommand", (e, id, ...args) => {
+    commands.run(id, ...args)
   })
 }

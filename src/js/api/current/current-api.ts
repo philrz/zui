@@ -5,6 +5,10 @@ import {GetState} from "src/js/state/types"
 export class CurrentApi {
   constructor(private getState: GetState) {}
 
+  get lakeId() {
+    return Current.getLakeId(this.getState())
+  }
+
   get tabId() {
     return Current.getTabId(this.getState())
   }
@@ -14,7 +18,7 @@ export class CurrentApi {
   }
 
   get poolName() {
-    return Current.getQuery(this.getState()).getPoolName()
+    return Current.getActiveQuery(this.getState()).toAst().poolName
   }
 
   get value() {

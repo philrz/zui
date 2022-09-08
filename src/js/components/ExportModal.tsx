@@ -71,7 +71,7 @@ const ExportModal = ({onClose}) => {
     toast
       .promise(dispatch(exportResults(filePath, format as ResponseFormat)), {
         loading: "Exporting...",
-        success: "Export Complete",
+        success: "Export Completed: " + filePath,
         error: "Error Exporting",
       })
       .catch((e) => {
@@ -100,6 +100,10 @@ const ExportModal = ({onClose}) => {
               defaultChecked
             />
             <label htmlFor="zng">zng</label>
+          </RadioItem>
+          <RadioItem>
+            <input type="radio" id="zson" value="zson" name="format" />
+            <label htmlFor="zson">zson</label>
           </RadioItem>
           <RadioItem>
             <input type="radio" id="json" value="json" name="format" />

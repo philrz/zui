@@ -9,8 +9,7 @@ import {
   toAccessTokenKey,
   toRefreshTokenKey,
 } from "../auth0/utils"
-import createGlobalStore from "../state/createGlobalStore"
-import {getPersistedGlobalState} from "../state/getPersistable"
+import {getPersistedGlobalState} from "../state/stores/get-persistable"
 import Lakes from "../state/Lakes"
 import {installExtensions} from "./extensions"
 import isDev from "./isDev"
@@ -19,8 +18,9 @@ import {WindowManager} from "./windows/window-manager"
 import * as zdeps from "./zdeps"
 import {MainArgs, mainDefaults} from "./run-main/args"
 import createSession, {Session} from "./session"
-import {SearchWindow} from "./windows/search-window"
+import {SearchWindow} from "./windows/search/search-window"
 import {getAppMeta, AppMeta} from "./meta"
+import {createMainStore} from "../state/stores/create-main-store"
 
 type QuitOpts = {
   saveSession?: boolean
@@ -34,7 +34,7 @@ export class BrimMain {
     const session = createSession(args.appState)
     const data = decodeSessionState(await session.load())
     const windows = new WindowManager(data)
-    const store = createGlobalStore(data?.globalState)
+    const store = createMainStore(data?.globalState)
     const appMeta = await getAppMeta()
     const lake = new Lake({
       root: args.lakeRoot,
