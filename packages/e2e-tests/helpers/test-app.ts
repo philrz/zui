@@ -51,7 +51,7 @@ export default class TestApp {
         })
       )
     )
-    this.mainWin = await this.getWindowByTitle("Brim")
+    this.mainWin = await this.getWindowByTitle("Zui")
   }
 
   async createPool(filepaths: string[]): Promise<void> {
@@ -68,7 +68,7 @@ export default class TestApp {
 
   async query(zed: string): Promise<void> {
     await this.mainWin.locator('div[role="textbox"]').fill(zed)
-    await this.mainWin.locator('div[aria-label="editor"] + button').click()
+    await this.mainWin.locator('[aria-label="run-query"]').click()
     await this.mainWin.locator('span[aria-label="fetching"]').isHidden()
   }
 
