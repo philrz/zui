@@ -33,6 +33,7 @@ export function accept(format: ResponseFormat) {
     json: "application/json",
     zjson: "application/x-zjson",
     zson: "application/x-zson",
+    parquet: "application/x-parquet",
   }
   const value = formats[format]
   if (!value) {
