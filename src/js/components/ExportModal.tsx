@@ -117,6 +117,10 @@ const ExportModal = ({onClose}) => {
             <input type="radio" id="csv" value="csv" name="format" />
             <label htmlFor="csv">csv</label>
           </RadioItem>
+          <RadioItem>
+            <input type="radio" id="parquet" value="parquet" name="format" />
+            <label htmlFor="parquet">parquet</label>
+          </RadioItem>
         </RadioButtons>
       </FormatContent>
       <StyledFooter>
