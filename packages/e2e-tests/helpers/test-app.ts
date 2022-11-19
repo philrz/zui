@@ -8,6 +8,7 @@ import {
   Page,
   _electron as electron,
 } from "playwright-chromium"
+import {expect} from "@playwright/test"
 import env from "../../../src/app/core/env"
 import {itestDir} from "./env"
 
@@ -71,7 +72,6 @@ export default class TestApp {
       this.mainWin.waitForEvent("filechooser"),
       locator.click(),
     ])
-
     await chooser.setFiles(paths)
   }
 
@@ -80,6 +80,16 @@ export default class TestApp {
     for (let pool of pools) {
       await this.zealot.deletePool(pool.id)
     }
+  }
+
+  async importQueriesFromFile(queriesPath: string): Promise<void> {
+    await this.mainWin.locator('button[aria-label="create"]').click()
+    const [chooser] = await Promise.all([
+      this.mainWin.waitForEvent("filechooser"),
+      this.mainWin.locator('li:has-text("Import Queries...")').click(),
+    ])
+    await chooser.setFiles([queriesPath])
+    await expect(this.mainWin.getByText("Imported")).toBeVisible()
   }
 
   async query(zed: string): Promise<void> {
