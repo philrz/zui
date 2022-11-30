@@ -63,7 +63,7 @@ export default class TestApp {
     ])
 
     await chooser.setFiles(filepaths)
-    await this.mainWin.getByText("Load Successful").waitFor()
+    await this.mainWin.getByText("Load Successful").first().waitFor()
   }
 
   async chooseFiles(locator, paths: string[]) {
