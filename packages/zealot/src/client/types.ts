@@ -62,6 +62,7 @@ export type LoadOpts = {
   }
   signal?: AbortSignal
   format?: LoadFormat
+  csvDelim?: string
 }
 export type LoadFormat =
   | "auto"

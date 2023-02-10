@@ -55,8 +55,12 @@ export class Client {
     const branch = opts.branch || "main"
     let headers = new Headers()
     if (opts.message) headers.set("Zed-Commit", json(opts.message))
+    let path = `/pool/${poolId}/branch/${encodeURIComponent(branch)}`
+    if (opts.format === "csv" && opts.csvDelim) {
+      path = path + '?csv.delim=' + encodeURIComponent(opts.csvDelim)
+    }
     const res = await this.send({
-      path: `/pool/${poolId}/branch/${encodeURIComponent(branch)}`,
+      path,
       method: "POST",
       body: data,
       headers,

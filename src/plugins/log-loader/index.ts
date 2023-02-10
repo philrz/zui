@@ -31,10 +31,12 @@ export const activate = (api: BrimApi) => {
       })
       const stream = file.stream().pipeThrough(progressUpdateTransformStream)
       const data = nodeJSReadableStreamFromReadableStream(stream)
+      const csvDelim = api.configs.get("csvdelim", "csvDelimiter")
       const res = await zealot.load(data, {
         pool: params.poolId,
         branch: params.branch,
         format: params.format,
+        csvDelim,
         message: {
           author: "brim",
           body: "automatic import of " + file.path,
