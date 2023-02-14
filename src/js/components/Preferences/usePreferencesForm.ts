@@ -14,6 +14,11 @@ const checkFile = (path) => {
     .then((exists) => [exists, "file does not exist."])
 }
 
+const checkSingleChar = (str) => {
+  if (str.length === 1) return [true, ""]
+  return [false, "must be a single character"]
+}
+
 export const useConfigsForm = (): FormConfig => {
   const dispatch = useDispatch()
   const configs = useSelector(Configs.all)
@@ -39,6 +44,9 @@ export const useConfigsForm = (): FormConfig => {
           check = checkFile
           break
         case "string":
+          if (prop.singleChar) {
+            check = checkSingleChar
+          }
           // can validate further if 'pattern' (regex) provided in property here
           break
         default:

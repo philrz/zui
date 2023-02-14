@@ -15,13 +15,14 @@ export function activate(api: BrimApi) {
     },
   })
   api.configs.add({
-    name: "csvdelim",
+    name: "csvdelimiter",
     title: "CSV Delimiter",
     properties: {
       csvDelimiter: {
         name: "csvDelimiter",
         label: "CSV Delimiter",
         type: "string",
+        singleChar: true,
         defaultValue: ",",
       },
     },
