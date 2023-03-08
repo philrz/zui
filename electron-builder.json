@@ -12,7 +12,7 @@
   "linux": {"target": ["deb", "rpm"]},
   "rpm": {"depends": ["openssl"]},
   "deb": {"depends": ["openssl"]},
-  "nsis": {"oneClick": false, "perMachine": false, "CustomNsisBinary": {"debugLogging": true}},
+  "nsis": {"oneClick": false, "perMachine": false, "customNsisBinary": {"debugLogging": true}},
   "forceCodeSigning": true,
   "afterSign": "electron-builder-notarize",
   "publish": {
