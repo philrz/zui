@@ -121,6 +121,9 @@ export function createProcess(args: ZqArgs) {
   if (args.file) spawnargs.push(...arrayWrap(args.file));
   else spawnargs.push('-');
 
+  console.log('spawnargs:')
+  console.log(spawnargs)
+
   const zq = spawn(bin, spawnargs, { signal: args.signal }).on('error', (e) => {
     // This error must be caught in order to not throw an exception in main process
     // Also, really make sure this process is killed. It wasn't with only the SIGTERM
