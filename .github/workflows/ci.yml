@@ -22,6 +22,6 @@ jobs:
           NUM=1
           while true; do
             echo "Run number ${NUM}:"
-            nx run zed-node:test
+            nx run zed-node:test --skip-nx-cache
             NUM=$(expr $NUM + 1)
           done
