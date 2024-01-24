@@ -18,6 +18,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-zui
       - run: |
+          npm add --global nx@latest
+          NUM=1
           while true; do
+            echo "Run number ${NUM}:"
             nx run zed-node:test
+            NUM=$(expr $NUM + 1)
           done
