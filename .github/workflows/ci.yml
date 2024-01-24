@@ -4,7 +4,7 @@ on:
   pull_request:
   push:
     branches:
-      - main
+      - debug-zq-test
   workflow_dispatch:
 
 jobs:
@@ -12,22 +12,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-12, ubuntu-20.04, windows-2019]
+        os: [macos-12]
     steps:
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-zui
-      - run: yarn lint
-      - run: yarn test
-      - name: Build and install package
-        if: runner.os != 'Windows'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -x
-          case ${{ runner.os }} in
-            Linux )
-              yarn nx package-zui zui --linux=deb --publish never
-              sudo apt install -y --no-install-recommends ./dist/apps/zui/*.deb
-              ;;
-          esac
+      - run: |
+          while true; do
+            nx run zed-node:test
+          done
