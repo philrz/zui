@@ -15,7 +15,9 @@ test.describe('Pool Loads', () => {
 
   test('bad data displays an error message', async () => {
     await app.dropFile(getPath('soccer-ball.png'));
+    app.sleep(5);
     await app.attached(/Format Detection Error/i);
+    app.sleep(5);
     expect(app.locate('button', 'Load').isDisabled);
   });
 });
