@@ -109,6 +109,7 @@ async function zedDevBuild(destPath) {
   for (let f of [plat.zqBin, plat.zedBin]) {
     fs.copyFileSync(path.join(zedPackageDir, "dist", f), path.join(destPath, f))
   }
+  fs.copyFileSync(path.join(__dirname, "..", "..", "..", "..", "zq_wrapper.sh"), path.join(destPath, "zq_wrapper.sh"))
 }
 
 // Suricata rules are dropped from the Windows build to fix a false positive
