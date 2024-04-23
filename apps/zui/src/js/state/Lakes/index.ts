@@ -4,7 +4,7 @@ import {Lake} from "./types"
 
 const getDefaultLake = (port: string, user: string): Lake => {
   return {
-    host: "http://localhost",
+    host: "http://127.0.0.1",
     port,
     id: `localhost:${port}`,
     name: `${user}'s Zed Lake`,
