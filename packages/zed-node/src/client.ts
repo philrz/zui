@@ -6,6 +6,11 @@ import {
   jsonHeader,
 } from '@brimdata/zed-js';
 import nodeFetch from 'node-fetch';
+import * as dns from 'node:dns';
+
+// eslint-disable-next-line
+// @ts-ignore
+dns.setDefaultResultOrder('ipv4first');
 
 export class Client extends BaseClient {
   // eslint-disable-next-line
