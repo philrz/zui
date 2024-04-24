@@ -51,7 +51,7 @@ export async function boot(name: string, args: Partial<BootArgs> = {}) {
     singleInstance: false,
   })) as MainObject
 
-  await waitFor(async () => fetch(`http://localhost:${lakePort}/version`), {
+  await waitFor(async () => fetch(`http://127.0.0.1:${lakePort}/version`), {
     timeout: 20_000,
   })
   const windowId = mainObject.windows.byName("search")[0].id

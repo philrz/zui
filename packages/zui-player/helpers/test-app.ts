@@ -18,7 +18,7 @@ export default class TestApp {
   currentDataDir: string;
 
   constructor(private name: string) {
-    this.zealot = new Client('http://localhost:9867');
+    this.zealot = new Client('http://127.0.0.1:9867');
   }
 
   find(...args: Parameters<Page['locator']>) {

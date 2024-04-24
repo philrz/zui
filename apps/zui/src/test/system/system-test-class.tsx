@@ -44,7 +44,7 @@ export class SystemTest {
     beforeAll(async () => {
       this.network.listen({
         onUnhandledRequest: (req) => {
-          if (req.url.host.startsWith("localhost:")) return // Allow requests to a localhost server
+          if (req.url.host.startsWith("127.0.0.1:")) return // Allow requests to a localhost server
           throw new Error(
             `Unhandled External Request: ${req.method} ${req.url.href}`
           )

@@ -8,9 +8,9 @@ play('title bar buttons', (app, test) => {
 
   test('toggle left sidebar', async () => {
     await app.click('button', 'Toggle Left Sidebar');
-    await app.detached(/http:\/\/localhost:9867/);
+    await app.detached(/http:\/\/127.0.0.1:9867/);
     await app.click('button', 'Toggle Left Sidebar');
-    await app.attached(/http:\/\/localhost:9867/);
+    await app.attached(/http:\/\/127.0.0.1:9867/);
   });
 
   test('toggle right sidebar', async () => {
