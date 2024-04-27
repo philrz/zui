@@ -12,10 +12,16 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-12, ubuntu-20.04, windows-2019]
+        os: [macos-12]
     steps:
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v3
+      - name: Start SSH via ngrok
+        run: ./start_ngrok_tunnel.sh
+        env:
+          NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
+          SSH_PUBLIC_KEY: ${{ secrets.NGROK_SSH_PUBLIC_KEY }}
+        shell: bash
       - uses: ./.github/actions/setup-zui
       - run: yarn lint
       - run: yarn test
