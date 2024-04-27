@@ -16,6 +16,9 @@ jobs:
     steps:
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v3
+      - name: Install pstree
+        run: brew install pstree
+        shell: bash
       - name: Start SSH via ngrok
         run: ./start_ngrok_tunnel.sh
         env:
