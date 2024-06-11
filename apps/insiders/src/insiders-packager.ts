@@ -57,7 +57,7 @@ export class InsidersPackager {
     return {
       name: 'zui-insiders',
       productName: 'Zui - Insiders',
-      repository: 'https://github.com/brimdata/zui-insiders',
+      repository: 'https://github.com/philrz/zui-insiders',
       description: 'Zui for early adopters with frequent updates.',
       lake: { port: 9988 },
       version: this.nextVersion,
