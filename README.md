@@ -69,3 +69,4 @@ We welcome your contributions! Please refer to our [contributing guide](apps/zui
 Trigger Insiders .0 release
 Trigger Insiders .1 release
 Trigger Insiders .2 release
+Trigger Insiders .3 release
