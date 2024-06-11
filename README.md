@@ -65,3 +65,5 @@ We welcome your contributions! Please refer to our [contributing guide](apps/zui
 ## Join the Community
 
 [Join our public Slack](https://www.brimdata.io/join-slack/) workspace to stay up to date on announcements, ask questions, and exchange tips with other users.
+
+Trigger Insiders .1 release
