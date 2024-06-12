@@ -73,3 +73,4 @@ Trigger Insiders .3 release
 Trigger Insiders .4 release
 Trigger Insiders .5 release
 Trigger Insiders .6 release
+Trigger Insiders .7 release
